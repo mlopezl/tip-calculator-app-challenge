@@ -51,7 +51,7 @@
         <label
           class="bg-gray-200 text-green-900 text-xl font-bold w-32 h-10 flex justify-center items-center rounded-sm">
           
-          <input placeholder="Custom" class="w-full outline-none text-right pr-8 placeholder:text-green-900 placeholder:text-xl placeholder:font-bold" name="tip-type" type="number">
+          <input id="custom" placeholder="Custom" class="w-full outline-none text-right pr-8 placeholder:text-green-900 placeholder:text-xl placeholder:font-bold" name="tip-type" type="number">
         </label>
       </div>
     </section>
@@ -69,14 +69,14 @@
           <p class="text-white h-5">Tip Amount</p>
           <p class="text-gray-400 font-bold text-sm">/ person</p>
         </div>
-        <p class="text-green-400 text-2xl font-bold">$ <span>0.00</span></p>
+        <input id="tip" class="text-green-400 w-20 text-2xl font-bold" value="$0.00">
       </div>
       <div class="total flex justify-between items-center">
         <div class="flex flex-col gap-1">
-          <p class="text-white h-5">Tip Amount</p>
+          <p class="text-white h-5">Total</p>
           <p class="text-gray-400 font-bold text-sm">/ person</p>
         </div>
-        <p class="text-green-400 text-2xl font-bold">$ <span>0.00</span></p>
+        <input id="total" class="text-green-400 w-20 text-2xl font-bold" value="$0.00">
       </div>
       <button type="reset" class="bg-green-400 uppercase font-bold text-green-900 h-10 rounded-sm">reset</button>
     </section>
