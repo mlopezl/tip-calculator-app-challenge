@@ -4,7 +4,11 @@ const custom = document.getElementById("custom");
 const inputs = document.querySelectorAll('input[type="radio"]');
 const tip = document.getElementById("tip");
 const total = document.getElementById("total");
+const resetButton = document.getElementById('reset-button');
 const inputsArray = Array.from(inputs);
+const form = document.getElementById('form');
+
+console.log(resetButton);
 
 inputsArray.forEach((input) => {
   input.addEventListener("change", () => {
@@ -46,6 +50,16 @@ people.addEventListener("input", () => {
   }
 });
 
+tip.addEventListener('change', () =>{
+    if(tip.value){
+     resetButton.removeAttribute('disabled');
+    }
+});
+
+form.addEventListener('reset', () =>{
+  resetButton.setAttribute('disabled', 'disabled');
+})
+
 function calculteTips() {
   const checkedInput = inputsArray.find((input) => input.checked);
   const billAmount = Number(bill.value);
@@ -61,10 +75,12 @@ function calculteTips() {
     const totalPerPerson = (billAmount + billAmount * customPercent) / peopleAmount;
     tip.value = "$" + tipPerPerson.toFixed(2);
     total.value = "$" + totalPerPerson.toFixed(2);
+    tip.dispatchEvent(new Event('change'));
     return;
   }
   const tipPerPerson = (billAmount * checkedInput.value) / peopleAmount;
   const totalPerPerson = (billAmount + billAmount * checkedInput.value) / peopleAmount;
   tip.value = "$" + tipPerPerson.toFixed(2);
   total.value = "$" + totalPerPerson.toFixed(2);
+  tip.dispatchEvent(new Event('change'));
 }
