@@ -5,11 +5,9 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tip Calculator App</title>
+  <title>tip-calculator-app</title>
   <script type="module" crossorigin src="./assets/index-D7XQaUfy.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-Dl6266pm.css">
-  <link rel="icon" href="./images/favicon-32x32.png" type="image/x-icon">
-
 </head>
 
 <body class="bg-grey-200 flex flex-col justify-center items-center pt-15 gap-8 lg:pt-20 lg:gap-16">
@@ -18,50 +16,52 @@
     <div class="flex flex-col gap-4 lg:w-1/2 lg:gap-10 lg:p-4">
     <section class="bill flex flex-col gap-1 lg:gap-2">
       <label for="bill" class="text-gray-500 font-bold">Bill</label>
-      <div class="bg-grey-50 flex items-center h-10 rounded-lg p-2 pl-5">
+      <div class="bg-grey-50 flex items-center h-10 rounded-lg p-2 pl-5 outline-none border-transparent hover:border-1 hover:border-green-400 hover:transition hover:duration-500">
         <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='11'%20height='17'%3e%3cpath%20fill='%239EBBBD'%20d='M6.016%2016.328v-1.464c1.232-.08%202.22-.444%202.964-1.092.744-.648%201.116-1.508%201.116-2.58v-.144c0-.992-.348-1.772-1.044-2.34-.696-.568-1.708-.932-3.036-1.092V4.184c.56.144%201.012.4%201.356.768.344.368.516.816.516%201.344v.288h1.824v-.432c0-.448-.088-.876-.264-1.284a3.783%203.783%200%2000-.744-1.116A4.251%204.251%200%20007.54%202.9a5.324%205.324%200%2000-1.524-.492V.872H4.288V2.36a5.532%205.532%200%2000-1.416.324c-.448.168-.84.392-1.176.672-.336.28-.604.616-.804%201.008-.2.392-.3.844-.3%201.356v.144c0%20.96.316%201.708.948%202.244.632.536%201.548.884%202.748%201.044v3.912c-.704-.16-1.248-.472-1.632-.936-.384-.464-.576-1.08-.576-1.848v-.288H.256v.576c0%20.464.08.924.24%201.38.16.456.404.88.732%201.272.328.392.744.728%201.248%201.008s1.108.476%201.812.588v1.512h1.728zM4.288%207.424c-.688-.128-1.164-.332-1.428-.612-.264-.28-.396-.644-.396-1.092%200-.464.176-.832.528-1.104.352-.272.784-.448%201.296-.528v3.336zm1.728%205.712V9.344c.768.128%201.328.328%201.68.6.352.272.528.688.528%201.248%200%20.544-.196.984-.588%201.32-.392.336-.932.544-1.62.624z'/%3e%3c/svg%3e" alt="Dollar icon" class="w-3 h-5">
         <input id="bill" name="bill" type="number" placeholder="0"
-          class="bg-grey-50 w-full text-3xl text-right text-green-900 font-space font-bold outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
+          class="bg-grey-50 w-full text-3xl text-right text-green-900 font-space font-bold outline-none  [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
       </div>
     </section>
     <section class="type flex flex-col gap-2 lg:gap-3">
       <legend class="text-gray-500 font-bold">Select Tip %</legend>
       <div class="flex flex-wrap gap-4 justify-center">
         <label
-          class="bg-green-900 text-white text-xl font-bold w-32 h-10 flex justify-center items-center rounded-sm has-[:checked]:bg-green-400 has-[:checked]:text-green-900 lg:w-25">
+          class="bg-green-900 text-white text-xl font-bold w-32 h-10 flex justify-center items-center hover:bg-green-400 hover:text-green-900 transition duration-200 rounded-sm has-[:checked]:bg-green-400 has-[:checked]:text-green-900 lg:w-25">
           <input class="hidden" name="tip-type" type="radio" value="0.05">
           5%
-        </label>
+        </label>  
         <label
-          class="bg-green-900 text-white text-xl font-bold w-32 h-10 flex justify-center items-center rounded-sm has-[:checked]:bg-green-400 has-[:checked]:text-green-900 lg:w-25">
+          class="bg-green-900 text-white text-xl font-bold w-32 h-10 flex justify-center items-center
+          hover:bg-green-400 hover:text-green-900 transition duration-200 rounded-sm has-[:checked]:bg-green-400 has-[:checked]:text-green-900 lg:w-25">
           <input class="hidden" name="tip-type" type="radio" value="0.1">
           10%
         </label>
         <label
-          class="bg-green-900 text-white text-xl font-bold w-32 h-10 flex justify-center items-center rounded-sm has-[:checked]:bg-green-400 has-[:checked]:text-green-900 lg:w-25">
+          class="bg-green-900 text-white text-xl font-bold w-32 h-10 flex justify-center items-center hover:bg-green-400 hover:text-green-900 transition duration-200 rounded-sm has-[:checked]:bg-green-400 has-[:checked]:text-green-900 lg:w-25">
           <input class="hidden" name="tip-type" type="radio" value="0.15">
           15%
         </label>
         <label
-          class="bg-green-900 text-white text-xl font-bold w-32 h-10 flex justify-center items-center rounded-sm has-[:checked]:bg-green-400 has-[:checked]:text-green-900 lg:w-25">
+          class="bg-green-900 text-white text-xl font-bold w-32 h-10 flex justify-center items-center hover:bg-green-400 hover:text-green-900 transition duration-200 rounded-sm has-[:checked]:bg-green-400 has-[:checked]:text-green-900 lg:w-25">
           <input class="hidden" name="tip-type" type="radio" value="0.25">
           25%
         </label>
         <label
-          class="bg-green-900 text-white text-xl font-bold w-32 h-10 flex justify-center items-center rounded-sm has-[:checked]:bg-green-400 has-[:checked]:text-green-900 lg:w-25">
+          class="bg-green-900 text-white text-xl font-bold w-32 h-10 flex justify-center items-center hover:bg-green-400 hover:text-green-900 transition duration-200 rounded-sm has-[:checked]:bg-green-400 has-[:checked]:text-green-900 lg:w-25">
           <input class="hidden" name="tip-type" type="radio" value="0.50">
           50%
         </label>
         <label
-          class="bg-gray-200 text-green-900 text-xl font-bold w-32 h-10 flex justify-center items-center rounded-sm lg:w-25 ">
+          class="bg-gray-200 text-green-900 text-xl font-bold w-32 h-10 flex justify-center items-center rounded-sm lg:w-25 outline-none border-transparent hover:border-1 hover:border-green-400 hover:transition hover:duration-500">
           
           <input id="custom" placeholder="Custom" class="w-full outline-none text-right pr-8 placeholder:text-green-900 placeholder:text-xl placeholder:font-bold lg:pr-1 lg:text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" name="tip-type" type="number">
         </label>
       </div>
     </section>
-     <section class="people flex flex-col gap-1 lg:gap-2">
-      <label for="people" class="text-gray-500 font-bold">Number of people</label>
-      <div class="bg-grey-50 flex items-center h-10 rounded-lg p-2 pl-5">
+     <section  class="people flex flex-col gap-1 lg:gap-2 relative">
+      <label  for="people" class="text-gray-500 font-bold">Number of people</label>
+      <p id="text-alert" class="text-red-500 absolute right-1 hidden">Can't be zero</p>
+      <div id="number-people" class="bg-grey-50 flex items-center h-10 rounded-lg p-2 pl-5 outline-none">
         <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='13'%20height='16'%3e%3cpath%20fill='%239EBBBD'%20d='M9.573%207.729c.406%200%20.784.07%201.126.209.342.14.639.33.881.569.232.227.438.503.614.82a5.1%205.1%200%2001.407.949c.097.312.178.654.242%201.016.062.359.105.699.126%201.011.02.307.031.624.031.945%200%20.836-.259%201.512-.768%202.01-.504.492-1.17.742-1.98.742H2.748c-.81%200-1.477-.25-1.98-.742C.259%2014.76%200%2014.084%200%2013.248c0-.322.01-.64.032-.945.02-.312.063-.652.126-1.01.063-.363.144-.705.242-1.017.1-.323.238-.643.407-.948.176-.318.382-.594.613-.821.243-.238.54-.43.882-.57.342-.138.72-.208%201.125-.208.16%200%20.313.067.61.265.183.123.397.264.636.421.204.134.48.259.822.372.333.11.671.167%201.005.167a3.19%203.19%200%20001.006-.167c.341-.113.618-.238.822-.372l.636-.42c.296-.2.45-.266.61-.266zM6.598%200C7.63%200%208.522.38%209.252%201.129s1.1%201.666%201.1%202.724c0%201.06-.37%201.976-1.1%202.725-.73.75-1.623%201.13-2.654%201.13-1.03%200-1.924-.38-2.653-1.13-.73-.749-1.1-1.666-1.1-2.725%200-1.058.37-1.975%201.1-2.724C4.675.379%205.567%200%206.598%200z'/%3e%3c/svg%3e" alt="Person icon" class="w-4 h-4">
         <input id="people" name="people" type="number" placeholder="0"
           class="bg-grey-50 w-full text-3xl text-right text-green-900 font-space font-bold outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
@@ -74,7 +74,7 @@
           <p class="text-white h-5">Tip Amount</p>
           <p class="text-gray-400 font-bold text-sm">/ person</p>
         </div>
-        <input id="tip" class="text-green-400 w-20 text-2xl font-bold lg:text-5xl lg:w-50 lg:text-right placeholder:text-green-400" placeholder="$0.00">
+        <input id="tip" class="text-green-400 w-20 text-2xl font-bold lg:text-5xl lg:w-50 lg:text-right placeholder:text-green-400 " placeholder="$0.00">
       </div>
       <div class="total flex justify-between items-center">
         <div class="flex flex-col gap-1">

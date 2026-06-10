@@ -7,6 +7,8 @@ const total = document.getElementById("total");
 const resetButton = document.getElementById('reset-button');
 const inputsArray = Array.from(inputs);
 const form = document.getElementById('form');
+const numberPeople = document.getElementById('number-people');
+const textAlert = document.getElementById('text-alert');
 
 console.log(resetButton);
 
@@ -45,6 +47,18 @@ bill.addEventListener("input", () => {
 people.addEventListener("input", () => {
   const checkedInput = inputsArray.find((input) => input.checked);
   const customPercent = Number(custom.value) / 100;
+
+  if(people.value === "0"){
+    numberPeople.classList.add('border-1');
+    numberPeople.classList.add('border-red-500');
+    textAlert.classList.remove('hidden');
+    return;
+  } else{
+    numberPeople.classList.remove('border-1');
+    numberPeople.classList.remove('border-red-500');
+    textAlert.classList.add('hidden');
+  }
+
   if ((checkedInput || customPercent) && bill.value) {
     calculteTips();
   }
