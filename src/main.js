@@ -4,11 +4,14 @@ const custom = document.getElementById("custom");
 const inputs = document.querySelectorAll('input[type="radio"]');
 const tip = document.getElementById("tip");
 const total = document.getElementById("total");
-const resetButton = document.getElementById('reset-button');
+const resetButton = document.getElementById("reset-button");
 const inputsArray = Array.from(inputs);
-const form = document.getElementById('form');
-const numberPeople = document.getElementById('number-people');
-const textAlert = document.getElementById('text-alert');
+const form = document.getElementById("form");
+const numberPeople = document.getElementById("number-people");
+const textNegative = document.getElementById("text-negative");
+const textBillNegative = document.getElementById("text-bill-negative");
+const textBillZero = document.getElementById("text-bill-zero");
+const textAlert = document.getElementById("text-alert");
 
 console.log(resetButton);
 
@@ -38,6 +41,20 @@ custom.addEventListener("input", () => {
 bill.addEventListener("input", () => {
   const checkedInput = inputsArray.find((input) => input.checked);
   const customPercent = Number(custom.value) / 100;
+  const billAmount = parseInt(bill.value);
+  console.log(billAmount);
+
+  if (billAmount < 0) {
+    textBillNegative.classList.remove("hidden");
+    return;
+  } else if (billAmount === 0) {
+    textBillZero.classList.remove("hidden");
+    return;
+  } else {
+    textBillNegative.classList.add("hidden");
+    textBillZero.classList.add("hidden");
+  }
+
   if ((!checkedInput || !customPercent) && !people.value) {
     return;
   }
@@ -47,16 +64,22 @@ bill.addEventListener("input", () => {
 people.addEventListener("input", () => {
   const checkedInput = inputsArray.find((input) => input.checked);
   const customPercent = Number(custom.value) / 100;
+  const peopleAmount = parseInt(people.value);
 
-  if(people.value === "0"){
-    numberPeople.classList.add('border-1');
-    numberPeople.classList.add('border-red-500');
-    textAlert.classList.remove('hidden');
+  if (peopleAmount === 0) {
+    numberPeople.classList.add("border-1");
+    numberPeople.classList.add("border-red-500");
+    textAlert.classList.remove("hidden");
     return;
-  } else{
-    numberPeople.classList.remove('border-1');
-    numberPeople.classList.remove('border-red-500');
-    textAlert.classList.add('hidden');
+  } else if (peopleAmount < 0) {
+    numberPeople.classList.add("border-1");
+    numberPeople.classList.add("border-red-500");
+    textNegative.classList.remove("hidden");
+  } else {
+    numberPeople.classList.remove("border-1");
+    numberPeople.classList.remove("border-red-500");
+    textAlert.classList.add("hidden");
+    textNegative.classList.add("hidden");
   }
 
   if ((checkedInput || customPercent) && bill.value) {
@@ -64,15 +87,15 @@ people.addEventListener("input", () => {
   }
 });
 
-tip.addEventListener('change', () =>{
-    if(tip.value){
-     resetButton.removeAttribute('disabled');
-    }
+tip.addEventListener("change", () => {
+  if (tip.value) {
+    resetButton.removeAttribute("disabled");
+  }
 });
 
-form.addEventListener('reset', () =>{
-  resetButton.setAttribute('disabled', 'disabled');
-})
+form.addEventListener("reset", () => {
+  resetButton.setAttribute("disabled", "disabled");
+});
 
 function calculteTips() {
   const checkedInput = inputsArray.find((input) => input.checked);
@@ -86,15 +109,30 @@ function calculteTips() {
 
   if (!checkedInput) {
     const tipPerPerson = (billAmount * customPercent) / peopleAmount;
-    const totalPerPerson = (billAmount + billAmount * customPercent) / peopleAmount;
+    const totalPerPerson =
+      (billAmount + billAmount * customPercent) / peopleAmount;
     tip.value = "$" + tipPerPerson.toFixed(2);
     total.value = "$" + totalPerPerson.toFixed(2);
-    tip.dispatchEvent(new Event('change'));
+    tip.dispatchEvent(new Event("change"));
+    if (window.innerWidth <= 669) {
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: "smooth"
+  });
+}
     return;
   }
   const tipPerPerson = (billAmount * checkedInput.value) / peopleAmount;
-  const totalPerPerson = (billAmount + billAmount * checkedInput.value) / peopleAmount;
+  const totalPerPerson =
+    (billAmount + billAmount * checkedInput.value) / peopleAmount;
   tip.value = "$" + tipPerPerson.toFixed(2);
   total.value = "$" + totalPerPerson.toFixed(2);
-  tip.dispatchEvent(new Event('change'));
+  tip.dispatchEvent(new Event("change"));
+
+ if (window.innerWidth <= 669) {
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: "smooth"
+  });
+}
 }
