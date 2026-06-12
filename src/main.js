@@ -32,7 +32,13 @@ custom.addEventListener("focus", () => {
 });
 
 custom.addEventListener("input", () => {
+  const billValue = parseInt(bill.value);
+  const peopleValue = parseInt(people.value)
   if (!bill.value && !people.value) {
+    return;
+  }
+
+  if(billValue <= 0 || poepleValue <= 0){
     return;
   }
   calculteTips();
